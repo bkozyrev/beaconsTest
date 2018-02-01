@@ -113,11 +113,13 @@ public class DeviceActivity extends AppCompatActivity implements BeaconConsumer 
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onPause() {
+        super.onPause();
         connectionSubscription.unsubscribe();
         beaconManager = null;
-        beaconTransmitter.stopAdvertising();
+        if (beaconTransmitter != null) {
+            beaconTransmitter.stopAdvertising();
+        }
     }
 
     public void establishConnection(NimbDevice device) {
