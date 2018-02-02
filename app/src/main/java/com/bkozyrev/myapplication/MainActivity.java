@@ -47,5 +47,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ScanningActivity.class);
             startActivity(intent);
         });
+
+        findViewById(R.id.buttonStartBeaconDebug).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BeaconDebugActivity.class);
+            startActivity(intent);
+        });
     }
 }

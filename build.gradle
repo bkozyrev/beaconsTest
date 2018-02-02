@@ -34,4 +34,5 @@ ext {
     autoValueWithVersion = '1.0.0'
     javaPoetVersion = '1.8.0'
     butterKnifeVersion = '8.5.1'
+    rxBindingVersion = '1.0.1'
 }

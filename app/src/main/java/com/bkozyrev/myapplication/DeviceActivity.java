@@ -31,6 +31,7 @@ import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.BeaconTransmitter;
+import org.altbeacon.beacon.Identifier;
 import org.altbeacon.beacon.Region;
 
 import java.text.SimpleDateFormat;
@@ -113,13 +114,29 @@ public class DeviceActivity extends AppCompatActivity implements BeaconConsumer 
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(nimbDeviceEventReceiver);
+    }
+
+    private void stopScan() {
+        try {
+            beaconManager.stopRangingBeaconsInRegion(new Region("RangingId", Identifier.parse(UUID), null, null));
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         connectionSubscription.unsubscribe();
+        stopScan();
         beaconManager = null;
         if (beaconTransmitter != null) {
             beaconTransmitter.stopAdvertising();
         }
+        beaconTransmitter = null;
     }
 
     public void establishConnection(NimbDevice device) {

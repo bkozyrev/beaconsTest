@@ -28,6 +28,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation "com.android.support:recyclerview-v7:26.1.0"
+    implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     implementation "io.reactivex:rxandroid:1.2.1"
@@ -50,6 +51,11 @@ dependencies {
     // ButterKnife
     implementation "com.jakewharton:butterknife:${butterKnifeVersion}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
+
+    // RxBinding
+    implementation "com.jakewharton.rxbinding:rxbinding:${rxBindingVersion}"
+    implementation "com.jakewharton.rxbinding:rxbinding-support-v4:${rxBindingVersion}"
+    implementation "com.jakewharton.rxbinding:rxbinding-appcompat-v7:${rxBindingVersion}"
 
     implementation 'org.altbeacon:android-beacon-library:2.12.4'
 }

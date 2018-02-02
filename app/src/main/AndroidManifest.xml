@@ -26,6 +26,8 @@
         <activity android:name=".DeviceActivity"/>
         <activity android:name=".DoggyActivity"/>
         <activity android:name=".ScanningActivity"/>
+        <activity android:name=".BeaconDebugActivity"
+            android:theme="@style/BeaconDebugActivityTheme"/>
 
         <service android:name=".DetectionService"/>
 

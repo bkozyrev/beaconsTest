@@ -177,7 +177,7 @@ public class ScanningActivity extends AppCompatActivity implements BeaconConsume
                 displayString += "Name: "; displayString += beacon.getBluetoothName(); displayString += "\n";
                 displayString += "Address: "; displayString += beacon.getBluetoothAddress(); displayString += "\n";
                 displayString += "UUID: "; displayString += beacon.getId1(); displayString += "\n";
-                displayString += "Major: "; displayString += beacon.getId2(); displayString += "\n";
+                displayString += "Major: "; displayString += beacon.getId2().toHexString(); displayString += "\n";
                 displayString += "Minor: "; displayString += beacon.getId3().toHexString(); displayString += "\n";
                 displayString += "-------------------------------"; displayString += "\n";
 
